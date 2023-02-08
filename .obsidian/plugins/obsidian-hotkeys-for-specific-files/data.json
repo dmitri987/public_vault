@@ -1,0 +1,7 @@
+{
+  "files": [
+    "config/help.md",
+    "todo.md"
+  ],
+  "useExistingPane": true
+}

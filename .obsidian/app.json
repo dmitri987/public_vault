@@ -1,0 +1,27 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "vimMode": true,
+  "defaultViewMode": "preview",
+  "promptDelete": true,
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": false,
+  "showLineNumber": true,
+  "tabSize": 2,
+  "showUnsupportedFiles": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "newLinkFormat": "relative",
+  "newFileLocation": "folder",
+  "spellcheckLanguages": [
+    "uk",
+    "en-US"
+  ],
+  "newFileFolderPath": "Inbox",
+  "autoConvertHtml": false,
+  "useTab": true
+}

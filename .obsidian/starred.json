@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "title": "Untitled",
+      "path": "Obsidian/plugins/Templater.md"
+    },
+    {
+      "type": "file",
+      "title": "my thoughts",
+      "path": "pages/garden/my thoughts.md"
+    },
+    {
+      "type": "file",
+      "title": "Help",
+      "path": "Inbox/Help.md"
+    }
+  ]
+}
