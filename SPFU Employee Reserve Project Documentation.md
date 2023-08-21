@@ -14,6 +14,10 @@
 
 ```
 
+# Route-Component Model
+# Component Model
+// component signature
+
 # Types
 
 # API
