@@ -17,10 +17,7 @@
   },
   "newLinkFormat": "relative",
   "newFileLocation": "folder",
-  "spellcheckLanguages": [
-    "uk",
-    "en-US"
-  ],
+  "spellcheckLanguages": null,
   "newFileFolderPath": "Inbox",
   "autoConvertHtml": false,
   "useTab": true
