@@ -4,18 +4,19 @@
 
 #### Types
 ```ts
-export type Fetcher<Key = any, Data = any> = (
+// simplified
+export type Fetcher = (
   key: Key,
   options?: { method?: string; body?: any } // TODO: remove it ??
-) => Promise<Data>;
+) => Promise;
 
-export type FetchOptions<Key = any, Data = any, Error = any> = {
-  fetcher?: Fetcher<Key, Data>;
-  cacheMap?: CacheMap<Data>;
-  staleTime?: StaleTimeInMilliseconds;
+export type FetchOptions = {
+  fetcher?: Fetcher;
+  cacheMap?: Map;
+  staleTime?: number; // in milliseconds
   refetch?: boolean;
-  onError?(error: Error): void;
-  onSuccess?(data: Data): void;
+  onError?(error): void;
+  onSuccess?(data): void;
   method?: any;
   body?: any;
 };
@@ -25,6 +26,34 @@ export type FetchResult<Data = any, Error = any> = {
   isLoading: boolean;
   error?: Error;
 };
+
+function useFetch(key, options?: FetchOptions): FetchResult
+```
+
+#### Usage
+##### Simple fetch, no caching
+```tsx
+const MyComponent = () => {
+	const { data, isLoading, error } = useFetch('https://...');
+
+  return (
+    <div>
+      {isLoading && 'Loading...'}
+      {data && data.map(item => ...)}
+      {error && error.message}
+    </div>
+    )
+}
+```
+
+##### Using custom `fetcher`
+```tsx
+const fetcher = async (page) => {
+  return fetch(url + '?page=' + page).then(res => res.json());
+}
+        ...
+const { data } = useFetch(page, { fetcher })        
+
 ```
 
 
