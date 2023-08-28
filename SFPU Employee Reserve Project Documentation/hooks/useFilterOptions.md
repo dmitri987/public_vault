@@ -18,5 +18,49 @@ function useFilterOptions(): [options, setOptions]
 ### Usage
 #### Put `FilterOptionsProvider` over all components, where you plan to use `useFilterOptions`
 ```tsx
+// src/components/App/App.tsx
 
+import { FilterOptionsProvider } from '../FilterOptions';
+
+		    ...
+		const App = () => {
+		  return (
+		    <>
+		      <Header />
+		      <FilterOptionsProvider>
+		        <Main />
+		      </FilterOptionsProvider>
+		      <Footer />
+		    </>
+		  );
+		};
 ```
+
+#### Use `useFilterOptions` inside your component
+```tsx
+// src/components/VacancyList.tsx
+
+const VacancyList = () => {
+  const [options, setOptions] = useFilterOptions();
+
+  useEffect(() => {
+    // do something if options are changed
+  }, [options])
+
+  // refetch only if options are changed
+  const { data } = useFetch(options, { fetcher: someFilterOptionBasedFetcher })
+
+	return (
+	  <div>
+	      ...
+      // set filter options
+	    <button onClick={() => setOptions({ ownershipKeys: ['DP'] })})> ...
+}
+```
+
+##### Use `setOptions`
+###### Reset `options`
+```tsx
+  setOptions()  or  setOptions(null)
+```
+###### Set 
