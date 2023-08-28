@@ -28,8 +28,12 @@ export type FetchResult<Data = any, Error = any> = {
 };
 
 function useFetch(key, options?: FetchOptions): FetchResult
+
+async function prefetch(key, options?: FetchOptions): Promise 
+
 ```
 
+### `useFetch`
 #### Usage
 ##### Simple fetch, no caching
 ```tsx
@@ -84,5 +88,18 @@ const fetcher = async () => {
        useFetch(url, { refetch: false, staleTime: 10_000 })
 ```
 
-##### 
+When no `refetch`, stale data will be refetched automatically and saved to cache if `staleTime` > 0
 
+### `prefetch`
+It has the same arguments as `useFetch`, but return `Promise` instead of `{ data, isLoading, error }`
+`prefetch` and `useFetch` save and load data from the same `cacheMap` by default.
+
+##### Using to prefetch data in `React Router` loader
+```tsx
+	<Route
+		path="/"
+		element={<MainLayout />}
+		loader={() => prefetch(url, { staleTime: Infinity })}
+	>
+				...
+```
