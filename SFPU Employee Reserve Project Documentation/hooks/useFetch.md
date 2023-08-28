@@ -61,10 +61,28 @@ const { data } = useFetch(page, { fetcher })
 ```tsx
 import companies from 'src/fakedata/companies.json';
 
-const fetcher = async (page) => {
+const fetcher = async () => {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(companies))
+    setTimeout(() => resolve(companies), 200)
   })
 }
+     ...
 ```
+
+##### Cache fetched data
+```tsx
+...   useFetch(url, { staleTime: 60_000 }) // cache results for 1 min
+```
+
+##### Force fetch even if cached data is still fresh, and cache it for 10 seconds
+```tsx
+       useFetch(url, { refetch: true, staleTime: 10_000 })
+```
+
+##### Return cached data even if it's stale, otherwise fetch it and cache for 10 sec
+```tsx
+       useFetch(url, { refetch: false, staleTime: 10_000 })
+```
+
+##### 
 
