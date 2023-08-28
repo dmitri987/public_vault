@@ -1,10 +1,10 @@
 *Here is some documentation on SFPU Employee Reserve Project*
 
 ### Hooks
-- [useFetch](hooks/useFetch)
-- [useFilterOptions](hooks/useFilterOptions)
+- [useFetch](./hooks/useFetch)
+- [useFilterOptions](./hooks/useFilterOptions)
 
-### [API](API)
+### [API](./API)
 
 
 
