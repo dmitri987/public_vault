@@ -1,6 +1,6 @@
 
-
-### Using `useFetch` and `prefetch` to fetch and, optionally, cache data from the server
+Use `useFetch` to fetch and, optionally, cache data. 
+Use `prefetch` in the same way, but outside of React components.
 
 #### Types
 ```ts
@@ -52,36 +52,19 @@ const fetcher = async (page) => {
   return fetch(url + '?page=' + page).then(res => res.json());
 }
         ...
+// useFetch will pass 'key' to the 'fetcher' as is				
+// and save its resolved result to 'data'
 const { data } = useFetch(page, { fetcher })        
-
 ```
 
+##### Using custom `fetcher` to fake data
+```tsx
+import companies from 'src/fakedata/companies.json';
 
-
-# Dir/file structure   
-#structure #file #dir 
-
+const fetcher = async (page) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(companies))
+  })
+}
 ```
-/ 
-  src/
-
-    api.ts   // everything related to communication with the server
-             // mainly hooks ??
-
-```
-
-# Route-Component Model
-# Component Model
-// component signature
-
-# Types
-
-# API
-Entry Point: `/start`
-Request:
-Response
-Component
-Mapping:
-
-// Questionnaire
 
