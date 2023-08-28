@@ -40,14 +40,16 @@ import { FilterOptionsProvider } from '../FilterOptions';
 ```tsx
 // src/components/VacancyList.tsx
 
+import { useFilterOptions } from '../FilterOptions';
+
 const VacancyList = () => {
   const [options, setOptions] = useFilterOptions();
 
   useEffect(() => {
-    // do something if options are changed
+    // do something if options is changed
   }, [options])
 
-  // refetch only if options are changed
+  // refetch only if options is changed
   const { data } = useFetch(options, { fetcher: someFilterOptionBasedFetcher })
 
 	return (
