@@ -1,6 +1,9 @@
 This is how I propose to manage enterprise filters.
+
 Keep all options in single object, not in three `useState`.
+
 Make them available to components with `Context Provider`.
+
 Get and set them in the same way as with `useState`.
 
 ### Types

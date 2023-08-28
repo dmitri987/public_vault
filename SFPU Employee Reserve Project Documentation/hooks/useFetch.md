@@ -1,5 +1,6 @@
 
 Use `useFetch` to fetch and, optionally, cache data. 
+
 Use `prefetch` in the same way, but outside of React components.
 
 #### Types
@@ -91,7 +92,8 @@ const fetcher = async () => {
 When no `refetch`, stale data will be refetched automatically and saved to cache if `staleTime` > 0
 
 ### `prefetch`
-It has the same arguments as `useFetch`, but return `Promise` instead of `{ data, isLoading, error }`
+It has the same arguments as `useFetch`, but return `Promise` instead of `{ data, isLoading, error }`.
+
 `prefetch` and `useFetch` save and load data from the same `cacheMap` by default.
 
 ##### Using to prefetch data in `React Router` loader
